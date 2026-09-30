@@ -117,18 +117,22 @@ as.numeric(bad_string)
 
 
 #### Part D - Strings, paste(), and paste0()
-
 ```{r}
 first_name <- "Juan"
 last_name <- "Dela Cruz"
+
+print(first_name)
+print(last_name)
+cat(first_name, last_name)
 ```
 
 ```{r}
-print (first_name)
-print (last_name)
-cat (first_name, last_name)
+full_name <- paste(first_name, last_name)
+full_name
 
+paste0(first_name, last_name)
 ```
+
 ```{r}
 paste(first_name, last_name, sep = "-")
 ```

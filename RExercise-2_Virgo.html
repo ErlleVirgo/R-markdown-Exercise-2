@@ -478,18 +478,67 @@ typeof(num)</code></pre>
 as.numeric(bad_string)</code></pre>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>## [1] NA</code></pre>
+<div id="question-5-when-you-ran-the-conversion-fail-chunk-r-produced-na-and-a-warning-instead-of-stopping-with-an-error." class="section level5">
+<h5>Question #5: When you ran the conversion-fail chunk, R produced NA
+and a warning instead of stopping with an error.</h5>
+</div>
+<div id="why-do-you-think-r-is-designed-to-give-a-warning-here-rather-than-crashing-the-whole-script" class="section level5">
+<h5>Why do you think R is designed to give a warning here rather than
+crashing the whole script?</h5>
+<pre class="r"><code># R gives a warning so the script keeps running.
+
+# If you ignore the warning, the NA stays in your data and can make later results wrong or blank, and you won&#39;t know where it came from.</code></pre>
+</div>
+<div id="question-6-as.logical0-and-as.logical1-convert-to-false-and-true." class="section level5">
+<h5>Question #6: as.logical(0) and as.logical(1) convert to FALSE and
+TRUE.</h5>
+</div>
+<div id="what-do-you-think-as.logical2-and-as.logical-1-will-produce" class="section level5">
+<h5>What do you think as.logical(2) and as.logical(-1)` will
+produce?</h5>
+<pre class="r"><code># both will give true
+# both do give true. The rule is that 0 becomes FALSE and any other number, positive or negative, becomes TRUE</code></pre>
+</div>
 </div>
 <div id="part-d---strings-paste-and-paste0" class="section level4">
 <h4>Part D - Strings, paste(), and paste0()</h4>
-<p>/</p>
 <pre class="r"><code>first_name &lt;- &quot;Juan&quot;
-last_name &lt;- &quot;Dela Cruz&quot;</code></pre>
-<pre class="r"><code>print (first_name)</code></pre>
+last_name &lt;- &quot;Dela Cruz&quot;
+
+print(first_name)</code></pre>
 <pre><code>## [1] &quot;Juan&quot;</code></pre>
-<pre class="r"><code>print (last_name)</code></pre>
+<pre class="r"><code>print(last_name)</code></pre>
 <pre><code>## [1] &quot;Dela Cruz&quot;</code></pre>
-<pre class="r"><code>cat (first_name, last_name)</code></pre>
+<pre class="r"><code>cat(first_name, last_name)</code></pre>
 <pre><code>## Juan Dela Cruz</code></pre>
+<pre class="r"><code>full_name &lt;- paste(first_name, last_name)
+full_name</code></pre>
+<pre><code>## [1] &quot;Juan Dela Cruz&quot;</code></pre>
+<pre class="r"><code>paste0(first_name, last_name)</code></pre>
+<pre><code>## [1] &quot;JuanDela Cruz&quot;</code></pre>
+<pre class="r"><code>paste(first_name, last_name, sep = &quot;-&quot;)</code></pre>
+<pre><code>## [1] &quot;Juan-Dela Cruz&quot;</code></pre>
+<pre class="r"><code>age &lt;- 21
+text &lt;- &quot;years old.&quot;
+paste0(full_name, &quot; is &quot;, age, &quot; &quot;, text)</code></pre>
+<pre><code>## [1] &quot;Juan Dela Cruz is 21 years old.&quot;</code></pre>
+<div id="question-7-paste-and-paste0-produced-different-results-for-the-same-two-strings.-explain-exactly-why-referencing-what-each-function-does-by-default." class="section level6">
+<h6>Question #7: paste() and paste0() produced different results for the
+same two strings. Explain exactly why, referencing what each function
+does by default.</h6>
+<pre class="r"><code># paste() adds a space between the words, so you get &quot;Juan Dela Cruz&quot;. paste0() adds nothing, so the words stick together: &quot;Juan Dela Cruz&quot;.</code></pre>
+</div>
+<div id="question-8-in-the-strings-numbers-chunk-you-combined-a-character-string-with-a-numeric-variable-age-using-paste0-without-first-converting-age-to-a-string." class="section level5">
+<h5>Question #8: In the strings-numbers chunk, you combined a character
+string with a numeric variable (age) using paste0() without first
+converting age to a string.</h5>
+</div>
+<div id="did-this-cause-an-error-explain-what-paste0-does-internally-to-make-this-work-and-how-it-relates-to-the-type-conversions-you-practiced-in-part-c." class="section level5">
+<h5>Did this cause an error? Explain what paste0() does internally to
+make this work, and how it relates to the type conversions you practiced
+in Part C.</h5>
+<pre class="r"><code> # No error. paste0() turns the number 21 into text (&quot;21&quot;) on its own before joining, just like as.character()</code></pre>
+</div>
 </div>
 </div>
 
