@@ -101,10 +101,56 @@ as.logical(1)
 bad_string <- "hello123"
 as.numeric(bad_string)
 ```
+##### Question #5: When you ran the conversion-fail chunk, R produced NA and a warning instead of stopping with an error. 
+#####   Why do you think R is designed to give a warning here rather than crashing the whole script?
+```{r}
+# R gives a warning so the script keeps running.
+
+# If you ignore the warning, the NA stays in your data and can make later results wrong or blank, and you won't know where it came from.
+```
+##### Question #6: as.logical(0) and as.logical(1) convert to FALSE and TRUE.
+#####   What do you think as.logical(2) and as.logical(-1)` will produce?
+```{r}
+# both will give true
+# both do give true. The rule is that 0 becomes FALSE and any other number, positive or negative, becomes TRUE
+```
 
 
 #### Part D - Strings, paste(), and paste0()
 
+```{r}
+first_name <- "Juan"
+last_name <- "Dela Cruz"
+```
 
+```{r}
+print (first_name)
+print (last_name)
+cat (first_name, last_name)
+
+```
+```{r}
+paste(first_name, last_name, sep = "-")
+```
+
+```{r}
+age <- 21
+text <- "years old."
+paste0(full_name, " is ", age, " ", text)
+```
+
+###### Question #7: paste() and paste0() produced different results for the same two strings. Explain exactly why, referencing what each function does by default.
+```{r}
+# paste() adds a space between the words, so you get "Juan Dela Cruz". paste0() adds nothing, so the words stick together: "Juan Dela Cruz".
+```
+
+##### Question #8: In the strings-numbers chunk, you combined a character string with a numeric variable (age) using paste0() without first converting age to a string.
+#####     Did this cause an error? Explain what paste0() does internally to make this work, and how it relates to the type conversions you practiced in Part C.
+
+```{r}
+ # No error. paste0() turns the number 21 into text ("21") on its own before joining, just like as.character()
+```
+
+  
 
 
